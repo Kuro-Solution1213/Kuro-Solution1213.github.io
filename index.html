@@ -96,6 +96,56 @@ body {
 
 }
 
+   /* KURO LOGO WATERMARK */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 650px;
+
+    height: 650px;
+
+    transform:
+
+        translate(-50%, -50%);
+
+    background-image:
+
+        url("kuro gambar.jpeg");
+
+    background-size:
+
+        contain;
+
+    background-position:
+
+        center;
+
+    background-repeat:
+
+        no-repeat;
+
+    opacity:
+
+        0.035;
+
+    pointer-events:
+
+        none;
+
+    z-index:
+
+        -1;
+
+}
+
 
 a {
 
