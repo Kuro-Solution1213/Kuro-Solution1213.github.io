@@ -4,71 +4,320 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kuro Solution</title>
+    <title>Kuro Solution | IT Repair & Maintenance</title>
 
     <style>
-        body {
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #111827;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
             background: #111827;
             color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             text-align: center;
+
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(17,24,39,0.9),
+                    rgba(37,99,235,0.85)
+                );
+            
+            color: white;
         }
 
-        header {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #111827, #2563eb);
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            margin-bottom: 15px;
         }
 
-        h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
         }
 
-        h2 {
-            font-weight: normal;
-            color: #dbeafe;
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
         }
 
         .button {
             display: inline-block;
-            margin-top: 25px;
-            padding: 14px 25px;
+
+            padding: 14px 28px;
+
+            border-radius: 8px;
+
             background: white;
             color: #2563eb;
+
             text-decoration: none;
-            border-radius: 8px;
+
             font-weight: bold;
+
+            transition: 0.3s;
         }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .button.blue {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* GENERAL SECTION */
 
         section {
-            padding: 50px 20px;
+            padding: 80px 8%;
         }
 
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* SERVICES */
+
         .services {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
         }
 
         .card {
-            background: #1f2937;
-            padding: 25px;
-            width: 220px;
-            border-radius: 12px;
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
         }
 
-        footer {
-            padding: 25px;
-            background: #030712;
+        .card:hover {
+            transform: translateY(-8px);
         }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+
+            text-align: center;
+
+            line-height: 1.8;
+        }
+
+        /* WHY US */
+
+        .why {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .why-card h3 {
+            margin: 15px 0 10px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #111827;
+            color: white;
+
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #030712;
+
+            color: #9ca3af;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <header>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        Kuro<span>Solution</span>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#services">Services</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
         <h1>Kuro Solution</h1>
 
         <h2>UR PROBLEM IS OUR CONCERN</h2>
@@ -77,62 +326,271 @@
             Professional IT Repair & Maintenance Service
         </p>
 
-        <a class="button" href="#services">
-            Our Services
+        <a
+            class="button"
+            href="#services">
+
+            Explore Our Services
+
         </a>
-    </header>
+
+    </div>
+
+</section>
 
 
-    <section id="services">
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="section-title">
 
         <h2>Our Services</h2>
 
-        <div class="services">
+        <p>
+            Reliable solutions for your technology problems.
+        </p>
 
-            <div class="card">
-                <h3>💻 Laptop</h3>
-                <p>Laptop repair and maintenance.</p>
+    </div>
+
+
+    <div class="services">
+
+
+        <div class="card">
+
+            <div class="icon">
+                💻
             </div>
 
-            <div class="card">
-                <h3>🖨️ Printer</h3>
-                <p>Printer troubleshooting and repair.</p>
-            </div>
+            <h3>Laptop Repair</h3>
 
-            <div class="card">
-                <h3>📱 Mobile</h3>
-                <p>Mobile phone repair service.</p>
-            </div>
-
-            <div class="card">
-                <h3>🖥️ PC</h3>
-                <p>PC repair and software installation.</p>
-            </div>
+            <p>
+                Troubleshooting, maintenance,
+                software installation and hardware repair.
+            </p>
 
         </div>
 
-    </section>
+
+        <div class="card">
+
+            <div class="icon">
+                🖨️
+            </div>
+
+            <h3>Printer Repair</h3>
+
+            <p>
+                Printer troubleshooting,
+                maintenance and repair services.
+            </p>
+
+        </div>
 
 
-    <section>
+        <div class="card">
 
-        <h2>Contact Us</h2>
+            <div class="icon">
+                📱
+            </div>
 
-        <p>Need IT assistance?</p>
+            <h3>Mobile Repair</h3>
 
-        <a class="button"
-           href="https://wa.me/60123456789">
-            WhatsApp Us
-        </a>
+            <p>
+                Mobile phone troubleshooting,
+                software and hardware services.
+            </p>
 
-    </section>
+        </div>
 
 
-    <footer>
+        <div class="card">
 
-        <p>© 2026 Kuro Solution. All Rights Reserved.</p>
+            <div class="icon">
+                🖥️
+            </div>
 
-    </footer>
+            <h3>PC Repair</h3>
+
+            <p>
+                PC troubleshooting,
+                upgrades and maintenance.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="section-title">
+
+        <h2>About Kuro Solution</h2>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <p>
+
+            Kuro Solution provides IT repair and
+            maintenance services for laptops,
+            printers, mobile phones and PCs.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            Our goal is to provide affordable,
+            reliable and convenient technical
+            solutions for our customers.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- WHY CHOOSE US -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Why Choose Us?</h2>
+
+    </div>
+
+
+    <div class="why">
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <h3>Affordable</h3>
+
+            <p>
+                Competitive service prices.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                🔧
+            </div>
+
+            <h3>Reliable Service</h3>
+
+            <p>
+                Careful troubleshooting and repair.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <h3>Fast Response</h3>
+
+            <p>
+                Quick response to customer problems.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="icon">
+                🤝
+            </div>
+
+            <h3>Customer Focused</h3>
+
+            <p>
+                Your problem is our concern.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+
+        <h2>Need IT Assistance?</h2>
+
+        <p>
+            Contact Kuro Solution today.
+        </p>
+
+    </div>
+
+
+    <!-- CHANGE THIS NUMBER LATER -->
+
+    <a
+        class="button"
+        href="https://wa.me/60123456789">
+
+        WhatsApp Us
+
+    </a>
+
+
+    <p>
+        📱 WhatsApp: 01X-XXXXXXX
+    </p>
+
+
+    <p>
+        📍 Malaysia
+    </p>
+
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Kuro Solution.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
 
 </body>
 </html>
