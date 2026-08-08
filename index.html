@@ -1,310 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Kuro Solution | IT Repair & Maintenance</title>
 
     <style>
 
+        /* =========================
+           THEME VARIABLES
+        ========================= */
+
+        :root {
+
+            --background: #f5f7fb;
+            --surface: #ffffff;
+            --surface-2: #eef2f7;
+
+            --text: #111827;
+            --text-secondary: #6b7280;
+
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+
+            --nav: #ffffff;
+            --border: #e5e7eb;
+
+            --shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+
+        }
+
+
+        /* DARK MODE */
+
+        body.dark {
+
+            --background: #0f172a;
+            --surface: #1e293b;
+            --surface-2: #334155;
+
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+
+            --primary: #60a5fa;
+            --primary-hover: #93c5fd;
+
+            --nav: #111827;
+            --border: #334155;
+
+            --shadow:
+                0 10px 30px rgba(0,0,0,0.35);
+
+        }
+
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
         * {
+
             margin: 0;
             padding: 0;
+
             box-sizing: border-box;
+
             scroll-behavior: smooth;
+
         }
+
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #111827;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--text);
+
+            transition:
+                background 0.3s,
+                color 0.3s;
+
         }
 
-        /* NAVIGATION */
+
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
             display: flex;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
+
             align-items: center;
 
-            padding: 18px 8%;
+            padding:
+                18px 8%;
 
-            background: #111827;
-            color: white;
+            background:
+                var(--nav);
+
+            border-bottom:
+                1px solid var(--border);
+
+            box-shadow:
+                0 2px 10px
+                rgba(0,0,0,0.05);
+
         }
+
 
         .logo {
+
             font-size: 24px;
+
             font-weight: bold;
+
+            color: var(--text);
+
         }
+
 
         .logo span {
-            color: #3b82f6;
+
+            color: var(--primary);
+
         }
+
 
         nav ul {
+
             display: flex;
+
             list-style: none;
+
             gap: 25px;
+
+            align-items: center;
+
         }
+
 
         nav a {
-            color: white;
+
+            color: var(--text);
+
             text-decoration: none;
+
             font-weight: 500;
+
+            transition: 0.3s;
+
         }
+
 
         nav a:hover {
-            color: #60a5fa;
+
+            color:
+                var(--primary);
+
         }
 
-        /* HERO */
+
+        /* =========================
+           THEME BUTTON
+        ========================= */
+
+        #themeToggle {
+
+            border: none;
+
+            background:
+                var(--surface-2);
+
+            color: var(--text);
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+
+        }
+
+
+        #themeToggle:hover {
+
+            transform:
+                rotate(20deg)
+                scale(1.08);
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 90vh;
+
+            min-height:
+                90vh;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
 
-            padding: 40px 20px;
+            padding:
+                50px 20px;
 
             background:
                 linear-gradient(
-                    rgba(17,24,39,0.9),
-                    rgba(37,99,235,0.85)
+                    135deg,
+                    #111827,
+                    #2563eb
                 );
-            
+
             color: white;
+
         }
+
+
+        .hero-content {
+
+            max-width:
+                850px;
+
+        }
+
 
         .hero h1 {
-            font-size: clamp(45px, 8vw, 80px);
-            margin-bottom: 15px;
+
+            font-size:
+                clamp(
+                    45px,
+                    8vw,
+                    80px
+                );
+
+            margin-bottom:
+                15px;
+
         }
+
 
         .hero h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
+
+            font-size:
+                clamp(
+                    20px,
+                    4vw,
+                    30px
+                );
+
+            margin-bottom:
+                15px;
+
         }
+
 
         .hero p {
+
             font-size: 18px;
-            margin-bottom: 30px;
+
+            margin-bottom:
+                30px;
+
+            color:
+                #dbeafe;
+
         }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
 
         .button {
-            display: inline-block;
 
-            padding: 14px 28px;
+            display:
+                inline-block;
 
-            border-radius: 8px;
+            padding:
+                14px 28px;
 
-            background: white;
-            color: #2563eb;
+            border-radius:
+                8px;
 
-            text-decoration: none;
+            background:
+                white;
 
-            font-weight: bold;
+            color:
+                #2563eb;
 
-            transition: 0.3s;
+            text-decoration:
+                none;
+
+            font-weight:
+                bold;
+
+            transition:
+                0.3s;
+
         }
+
 
         .button:hover {
-            transform: translateY(-3px);
-        }
 
-        .button.blue {
-            background: #2563eb;
-            color: white;
-        }
-
-        /* GENERAL SECTION */
-
-        section {
-            padding: 80px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #6b7280;
-        }
-
-        /* SERVICES */
-
-        .services {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 15px;
-
-            text-align: center;
+            transform:
+                translateY(-3px);
 
             box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
+                0 8px 20px
+                rgba(0,0,0,0.2);
 
-            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
+
+        .button.blue {
+
+            background:
+                var(--primary);
+
+            color:
+                white;
+
         }
 
-        .icon {
-            font-size: 45px;
-            margin-bottom: 20px;
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+
+            padding:
+                80px 8%;
+
         }
 
-        .card h3 {
-            margin-bottom: 10px;
+
+        .section-title {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                50px;
+
         }
 
-        .card p {
-            color: #6b7280;
-            line-height: 1.6;
+
+        .section-title h2 {
+
+            font-size:
+                36px;
+
+            margin-bottom:
+                10px;
+
         }
 
-        /* ABOUT */
 
-        .about {
-            background: white;
+        .section-title p {
+
+            color:
+                var(--text-secondary);
+
         }
 
-        .about-content {
-            max-width: 900px;
-            margin: auto;
 
-            text-align: center;
+        /* =========================
+           SERVICES
+        ========================= */
 
-            line-height: 1.8;
-        }
+        .services {
 
-        /* WHY US */
-
-        .why {
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(
+                        220px,
+                        1fr
+                    )
+                );
 
-            gap: 25px;
+            gap:
+                25px;
+
         }
+
+
+        .card {
+
+            background:
+                var(--surface);
+
+            padding:
+                30px;
+
+            border-radius:
+                15px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                var(--shadow);
+
+            border:
+                1px solid
+                var(--border);
+
+            transition:
+                0.3s;
+
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-8px);
+
+        }
+
+
+        .icon {
+
+            font-size:
+                45px;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .card h3 {
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .card p {
+
+            color:
+                var(--text-secondary);
+
+            line-height:
+                1.6;
+
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+
+            background:
+                var(--surface);
+
+        }
+
+
+        .about-content {
+
+            max-width:
+                900px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
+            line-height:
+                1.8;
+
+            color:
+                var(--text-secondary);
+
+        }
+
+
+        /* =========================
+           WHY US
+        ========================= */
+
+        .why {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        220px,
+                        1fr
+                    )
+                );
+
+            gap:
+                25px;
+
+        }
+
 
         .why-card {
-            text-align: center;
-            padding: 25px;
+
+            text-align:
+                center;
+
+            padding:
+                25px;
+
         }
+
 
         .why-card h3 {
-            margin: 15px 0 10px;
+
+            margin:
+                15px 0 10px;
+
         }
 
-        /* CONTACT */
+
+        .why-card p {
+
+            color:
+                var(--text-secondary);
+
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact {
-            background: #111827;
-            color: white;
 
-            text-align: center;
+            background:
+                #111827;
+
+            color:
+                white;
+
+            text-align:
+                center;
+
         }
 
-        .contact p {
-            margin: 10px 0;
+
+        .contact .section-title p {
+
+            color:
+                #cbd5e1;
+
         }
 
-        /* FOOTER */
+
+        .contact-info {
+
+            margin:
+                25px 0;
+
+            line-height:
+                2;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            text-align: center;
 
-            padding: 25px;
+            text-align:
+                center;
 
-            background: #030712;
+            padding:
+                25px;
 
-            color: #9ca3af;
+            background:
+                #030712;
+
+            color:
+                #9ca3af;
+
         }
 
-        /* MOBILE */
 
-        @media (max-width: 700px) {
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media
+        (max-width: 700px) {
 
             nav {
-                flex-direction: column;
-                gap: 15px;
+
+                flex-wrap:
+                    wrap;
+
+                gap:
+                    15px;
+
+                padding:
+                    15px 5%;
+
             }
+
 
             nav ul {
-                gap: 15px;
-                font-size: 14px;
+
+                width:
+                    100%;
+
+                justify-content:
+                    center;
+
+                gap:
+                    15px;
+
+                font-size:
+                    14px;
+
             }
 
-            .hero h2 {
-                font-size: 20px;
+
+            .hero {
+
+                min-height:
+                    80vh;
+
             }
+
 
             section {
-                padding: 60px 5%;
+
+                padding:
+                    60px 5%;
+
+            }
+
+
+            .section-title h2 {
+
+                font-size:
+                    30px;
+
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
     <div class="logo">
+
         Kuro<span>Solution</span>
+
     </div>
+
 
     <ul>
 
         <li>
-            <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
         </li>
 
         <li>
-            <a href="#services">Services</a>
+            <a href="#services">
+                Services
+            </a>
         </li>
 
         <li>
-            <a href="#about">About</a>
+            <a href="#about">
+                About
+            </a>
         </li>
 
         <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
+
+        <li>
+
+            <button
+                id="themeToggle"
+                aria-label="Toggle dark mode">
+
+                🌙
+
+            </button>
+
         </li>
 
     </ul>
@@ -312,19 +756,31 @@
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HOME
+========================= -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home">
 
-    <div>
+    <div class="hero-content">
 
-        <h1>Kuro Solution</h1>
+        <h1>
+            Kuro Solution
+        </h1>
 
-        <h2>UR PROBLEM IS OUR CONCERN</h2>
+
+        <h2>
+            UR PROBLEM IS OUR CONCERN
+        </h2>
+
 
         <p>
-            Professional IT Repair & Maintenance Service
+            Professional IT Repair
+            & Maintenance Service
         </p>
+
 
         <a
             class="button"
@@ -339,16 +795,23 @@
 </section>
 
 
-<!-- SERVICES -->
+<!-- =========================
+     SERVICES
+========================= -->
 
-<section id="services">
+<section
+    id="services">
 
-    <div class="section-title">
+    <div
+        class="section-title">
 
-        <h2>Our Services</h2>
+        <h2>
+            Our Services
+        </h2>
 
         <p>
-            Reliable solutions for your technology problems.
+            Reliable solutions
+            for your technology problems.
         </p>
 
     </div>
@@ -363,11 +826,15 @@
                 💻
             </div>
 
-            <h3>Laptop Repair</h3>
+            <h3>
+                Laptop Repair
+            </h3>
 
             <p>
-                Troubleshooting, maintenance,
-                software installation and hardware repair.
+                Troubleshooting,
+                maintenance,
+                software installation
+                and hardware repair.
             </p>
 
         </div>
@@ -379,11 +846,14 @@
                 🖨️
             </div>
 
-            <h3>Printer Repair</h3>
+            <h3>
+                Printer Repair
+            </h3>
 
             <p>
                 Printer troubleshooting,
-                maintenance and repair services.
+                maintenance and
+                repair services.
             </p>
 
         </div>
@@ -395,11 +865,15 @@
                 📱
             </div>
 
-            <h3>Mobile Repair</h3>
+            <h3>
+                Mobile Repair
+            </h3>
 
             <p>
-                Mobile phone troubleshooting,
-                software and hardware services.
+                Mobile phone
+                troubleshooting,
+                software and
+                hardware services.
             </p>
 
         </div>
@@ -411,11 +885,14 @@
                 🖥️
             </div>
 
-            <h3>PC Repair</h3>
+            <h3>
+                PC Repair
+            </h3>
 
             <p>
                 PC troubleshooting,
-                upgrades and maintenance.
+                upgrades and
+                maintenance.
             </p>
 
         </div>
@@ -426,13 +903,20 @@
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
-<section class="about" id="about">
+<section
+    class="about"
+    id="about">
 
-    <div class="section-title">
+    <div
+        class="section-title">
 
-        <h2>About Kuro Solution</h2>
+        <h2>
+            About Kuro Solution
+        </h2>
 
     </div>
 
@@ -441,18 +925,23 @@
 
         <p>
 
-            Kuro Solution provides IT repair and
-            maintenance services for laptops,
-            printers, mobile phones and PCs.
+            Kuro Solution provides
+            IT repair and maintenance
+            services for laptops,
+            printers, mobile phones
+            and PCs.
 
         </p>
 
+
         <br>
+
 
         <p>
 
-            Our goal is to provide affordable,
-            reliable and convenient technical
+            Our goal is to provide
+            affordable, reliable
+            and convenient technical
             solutions for our customers.
 
         </p>
@@ -462,13 +951,18 @@
 </section>
 
 
-<!-- WHY CHOOSE US -->
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
 
 <section>
 
-    <div class="section-title">
+    <div
+        class="section-title">
 
-        <h2>Why Choose Us?</h2>
+        <h2>
+            Why Choose Us?
+        </h2>
 
     </div>
 
@@ -482,10 +976,13 @@
                 💰
             </div>
 
-            <h3>Affordable</h3>
+            <h3>
+                Affordable
+            </h3>
 
             <p>
-                Competitive service prices.
+                Competitive
+                service prices.
             </p>
 
         </div>
@@ -497,10 +994,13 @@
                 🔧
             </div>
 
-            <h3>Reliable Service</h3>
+            <h3>
+                Reliable Service
+            </h3>
 
             <p>
-                Careful troubleshooting and repair.
+                Careful troubleshooting
+                and repair.
             </p>
 
         </div>
@@ -512,10 +1012,13 @@
                 ⚡
             </div>
 
-            <h3>Fast Response</h3>
+            <h3>
+                Fast Response
+            </h3>
 
             <p>
-                Quick response to customer problems.
+                Quick response
+                to customer problems.
             </p>
 
         </div>
@@ -527,10 +1030,13 @@
                 🤝
             </div>
 
-            <h3>Customer Focused</h3>
+            <h3>
+                Customer Focused
+            </h3>
 
             <p>
-                Your problem is our concern.
+                Your problem
+                is our concern.
             </p>
 
         </div>
@@ -541,13 +1047,20 @@
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
 
-<section class="contact" id="contact">
+<section
+    class="contact"
+    id="contact">
 
-    <div class="section-title">
+    <div
+        class="section-title">
 
-        <h2>Need IT Assistance?</h2>
+        <h2>
+            Need IT Assistance?
+        </h2>
 
         <p>
             Contact Kuro Solution today.
@@ -556,7 +1069,21 @@
     </div>
 
 
-    <!-- CHANGE THIS NUMBER LATER -->
+    <div class="contact-info">
+
+        <p>
+            📱 WhatsApp:
+            01X-XXXXXXX
+        </p>
+
+        <p>
+            📍 Malaysia
+        </p>
+
+    </div>
+
+
+    <!-- CHANGE NUMBER LATER -->
 
     <a
         class="button"
@@ -566,31 +1093,108 @@
 
     </a>
 
-
-    <p>
-        📱 WhatsApp: 01X-XXXXXXX
-    </p>
-
-
-    <p>
-        📍 Malaysia
-    </p>
-
-
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     <p>
+
         © 2026 Kuro Solution.
         All Rights Reserved.
+
     </p>
 
 </footer>
 
 
+<!-- =========================
+     DARK MODE SCRIPT
+========================= -->
+
+<script>
+
+    const themeToggle =
+        document.getElementById(
+            "themeToggle"
+        );
+
+
+    const savedTheme =
+        localStorage.getItem(
+            "theme"
+        );
+
+
+    /*
+       Load saved theme
+    */
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add(
+            "dark"
+        );
+
+        themeToggle.textContent =
+            "☀️";
+
+    }
+
+
+    /*
+       Toggle theme
+    */
+
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "dark"
+            );
+
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark"
+                );
+
+
+            if (isDark) {
+
+                themeToggle.textContent =
+                    "☀️";
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            }
+
+            else {
+
+                themeToggle.textContent =
+                    "🌙";
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+            }
+
+        }
+    );
+
+</script>
+
+
 </body>
+
 </html>
