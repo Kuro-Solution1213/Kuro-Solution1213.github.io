@@ -2830,6 +2830,37 @@ themeToggle.addEventListener(
 
 </script>
 
+   <script>
+
+/* Disable right click */
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+
+/* Disable dragging images */
+document.addEventListener("dragstart", function(e) {
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
+});
+
+
+/* Disable text/image selection */
+document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+});
+
+
+/* Disable copy */
+document.addEventListener("copy", function(e) {
+    e.preventDefault();
+});
+
+</script>
+
+   
+
 
 </body>
 
